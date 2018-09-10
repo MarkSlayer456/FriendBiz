@@ -1,4 +1,4 @@
-package main;
+package main.framework;
 
 import javax.swing.JFrame;
 
