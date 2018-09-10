@@ -11,21 +11,21 @@ public class Main implements Runnable {
 	 */
 	
 	public static Main main = new Main(); // This is only used in Frame.java not for use elsewhere
-	private BufferStrategy buffStr;
-	private Graphics g;
+	private BufferStrategy buffStr; // Buffer strategy object
+	private Graphics g; // Graphics
 	
 	
 	
-	public void Main() {} // DO NOT USE
+	public Main() {} // DO NOT USE
 	
 	private void setup() {
-		for(int i = 0; i < 10; i++) { //TODO this is just temporary to test drawing
+		for(int i = 0; i < 100; i++) { //TODO this is just temporary to test drawing
 		draw();
 		}
 	}
 	
 	private void draw() {
-		try {
+		try { // Try to create a buffer strategy if needed
 			buffStr = Frame.getWindow().getFrame().getBufferStrategy();
 			if(buffStr == null) {
 				Frame.getWindow().getFrame().createBufferStrategy(3);
@@ -46,6 +46,7 @@ public class Main implements Runnable {
 			g.dispose();
 			buffStr.show();
 		} catch(Exception e) {
+			e.printStackTrace();
 			System.out.println("An error occured while drawing...");
 		}
 	}
@@ -56,7 +57,7 @@ public class Main implements Runnable {
 	
 	
 	@Override
-	public void run() {
+	public void run() { // The program has started
 		setup();
 		System.out.println("The main class is loading..."); //TODO remove this
 	}
