@@ -1,3 +1,4 @@
 Remove system print messages in various files
 Make icon for application
 Create a loop that will limit fps to 30fps in main.java
+Organize files more
