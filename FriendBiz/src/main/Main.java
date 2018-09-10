@@ -46,15 +46,7 @@ public class Main extends TimerTask implements Runnable {
 	}
 	
 	public void doLogic() {
-		System.out.println(5 + 5); //TODO remove these
-		System.out.println(5 + 5);
-		System.out.println(5 + 5);
-		System.out.println(5 + 5);
-		System.out.println(5 + 5);
-		System.out.println(5 + 5);
-		System.out.println(5 + 5);
-		System.out.println(5 + 5);
-		System.out.println(5 + 5);
+		//TODO 
 	}
 	
 	private void draw() {
