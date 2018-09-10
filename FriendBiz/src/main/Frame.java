@@ -30,16 +30,4 @@ public class Frame {
 	public static Frame getWindow() { // This gets the frame object I created not the JFrame
 		return frame;
 	}
-	
-	public static void main(String[] args) {
-		Time time = new Time();
-		time.start();
-		System.out.println("Showing screen..."); //TODO remove this
-		getWindow().jf.setVisible(true); //TODO move to setup method in main
-		Thread main = new Thread(Main.main);
-		main.start();
-		
-		
-	}
-	
 }
