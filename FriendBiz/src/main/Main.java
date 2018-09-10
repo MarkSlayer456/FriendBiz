@@ -34,9 +34,11 @@ public class Main implements Runnable {
 			g = buffStr.getDrawGraphics();
 			////////////////////////////////////////////
 			g.clearRect(0, 0, Frame.getWindow().getFrame().getWidth(), Frame.getWindow().getFrame().getHeight()); // Clears the screen for each new frame
+			
+			//TODO just testing here
 			g.setColor(Color.RED);
 			g.fillRect(100, 0, 100, 100);
-			
+			//
 			
 			
 			
