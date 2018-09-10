@@ -28,8 +28,10 @@ public class Frame {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Showing screen...");
-		getWindow().jf.setVisible(true);
+		System.out.println("Showing screen..."); //TODO remove this
+		getWindow().jf.setVisible(true); //TODO move to setup method in main
+		Thread main = new Thread(Main.main);
+		main.start();
 		
 	}
 	
