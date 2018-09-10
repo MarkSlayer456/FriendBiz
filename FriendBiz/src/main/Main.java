@@ -17,10 +17,10 @@ public class Main implements Runnable {
 	public static void main(String[] args) {
 		Time time = new Time();
 		time.start();
-		System.out.println("Showing screen..."); //TODO remove this
-		Frame.getWindow().getFrame().setVisible(true);
 		Thread main = new Thread(Main.main);
 		main.start();
+		System.out.println("Showing screen..."); //TODO remove this
+		Frame.getWindow().getFrame().setVisible(true);
 	}
 	
 	
