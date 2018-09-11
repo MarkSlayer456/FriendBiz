@@ -3,16 +3,14 @@ package main;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.util.Random;
 import java.util.Timer;
-import java.util.TimerTask;
 
 import main.framework.Frame;
 import main.framework.Time;
 import main.ui.Button;
 import main.ui.Menu;
 
-public class Main extends TimerTask implements Runnable {
+public class Main implements Runnable {
 
 	/**
 	 * Main file of the entire program
@@ -22,6 +20,8 @@ public class Main extends TimerTask implements Runnable {
 	public static Time time = new Time(); // Creating a time object
 	private BufferStrategy buffStr; // Buffer strategy object
 	private Graphics g; // Graphics
+	private double endingTime;
+	private double startingTime;
 	Timer logic = new Timer();
 	
 	public static void main(String[] args) { // Frame becoming visible has to come before starting the main method
@@ -42,16 +42,33 @@ public class Main extends TimerTask implements Runnable {
 	private void setup() {
 		if(!running) { // If the loop isn't running
 			running = true;
-			logic.schedule(this, 0, 1000/60); // once every 60th of a second
-			return;
+			draw();
 		}
 		while(running) { // Continuously run the loop
-			draw(); // Want this to run as often as possible but maybe cap it at like 144fps	
+			
+			
+			double oneFrameInterval = 16.6666667; // This caps the program at 60fps
+			System.out.println("One Frame Interval : " + (endingTime - startingTime));
+			if(endingTime - startingTime >= oneFrameInterval) {
+				doLogic();
+			} else {
+				try {
+					System.out.println("sleeping for " + (long) (oneFrameInterval - (endingTime - startingTime)));
+					Thread.sleep((long) (oneFrameInterval - (endingTime - startingTime)));
+					doLogic();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			
 		}
 	}
-	
+	int i = 0;
 	public void doLogic() {
+		startingTime = time.getTimeInMSeconds(); // Keep this at the start
 		//TODO 
+		draw(); // Keep this at the end
 	}
 	
 	private void draw() {
@@ -87,6 +104,7 @@ public class Main extends TimerTask implements Runnable {
 			////////////////////////////////////////////////
 			g.dispose();
 			buffStr.show();
+			endingTime = time.getTimeInMSeconds(); // Keep this at the end
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("An error occured while drawing...");
@@ -101,6 +119,7 @@ public class Main extends TimerTask implements Runnable {
 	@Override
 	public void run() { // The program has started
 		setup();
+		draw();
 		doLogic();
 		System.out.println("The main class is loading..."); //TODO remove this
 	}
