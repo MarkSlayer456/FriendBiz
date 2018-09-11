@@ -11,7 +11,7 @@ public class Calendar {
 	private ArrayList<Event> events = null;
 	
 	public Calendar(ArrayList<Event> e) { // Each person will have a calendar
-		events = e;
+		this.events = e;
 	}
 	
 	public ArrayList<Event> getEvents() {

@@ -3,11 +3,14 @@ package main;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import main.framework.Frame;
 import main.framework.Time;
+import main.ui.Button;
+import main.ui.Menu;
 
 public class Main extends TimerTask implements Runnable {
 
@@ -26,8 +29,10 @@ public class Main extends TimerTask implements Runnable {
 		time.start();
 		Thread main = new Thread(Main.main);
 		main.start();
-		System.out.println("Showing screen..."); //TODO remove this
-		
+		// Put all setup methods in here
+		// make sure button.setup(); is before menu.setup();
+		Button.setup(); 
+		Menu.setup();
 	}
 	
 	private boolean running = false; // Is the draw loop running
@@ -60,10 +65,20 @@ public class Main extends TimerTask implements Runnable {
 			////////////////////////////////////////////
 			g.clearRect(0, 0, Frame.getWindow().getFrame().getWidth(), Frame.getWindow().getFrame().getHeight()); // Clears the screen for each new frame
 			
+			///// draw menus /////
+			Menu activeMenu = Menu.getActiveMenu();
+			for(int i = 0; i < activeMenu.getButtons().size(); i++) {
+				Button button = activeMenu.getButtons().get(i);
+				g.setColor(Color.CYAN); //TODO Add a text for the buttons later
+				g.drawRect(button.getRect().x, button.getRect().y, button.getRect().width, button.getRect().height);
+			}
+			
+			
+			
+			
+			
+			
 			//TODO just testing here
-			// This isn't appearing everytime
-			g.setColor(Color.RED);
-			g.fillRect(100, 0, 100, 100);
 			g.drawString(time.getTime(), 700, 50); // Shows the programs current time
 			//
 			
