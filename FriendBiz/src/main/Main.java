@@ -46,14 +46,12 @@ public class Main implements Runnable {
 		}
 		while(running) { // Continuously run the loop
 			
-			
-			double oneFrameInterval = 16.6666667; // This caps the program at 60fps
-			System.out.println("One Frame Interval : " + (endingTime - startingTime));
+			// This caps the program at 60fps
+			double oneFrameInterval = 16.6666667; 
 			if(endingTime - startingTime >= oneFrameInterval) {
 				doLogic();
 			} else {
 				try {
-					System.out.println("sleeping for " + (long) (oneFrameInterval - (endingTime - startingTime)));
 					Thread.sleep((long) (oneFrameInterval - (endingTime - startingTime)));
 					doLogic();
 				} catch (InterruptedException e) {
