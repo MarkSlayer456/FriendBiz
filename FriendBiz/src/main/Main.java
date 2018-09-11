@@ -90,8 +90,8 @@ public class Main implements Runnable {
 				g.setColor(Color.CYAN); //TODO Add a text for the buttons later
 				Rectangle bRect = button.getRect(); // Stores the rectangle for the button you are currently working with
 				String bTitle = button.getTitle(); // Stores the title for the button you are currently working with
-				int bTitleWidth = (int) g.getFontMetrics().getStringBounds(button.getTitle(), g).getWidth();
-				int bTitleHeight = (int) g.getFontMetrics().getStringBounds(button.getTitle(), g).getHeight();
+				int bTitleWidth = (int) g.getFontMetrics().getStringBounds(button.getTitle(), g).getWidth(); // Gets the width of the string
+				int bTitleHeight = (int) g.getFontMetrics().getStringBounds(button.getTitle(), g).getHeight(); // Gets the height of the string
 				g.drawRect(bRect.x, bRect.y, bRect.width, bRect.height);
 				g.drawString(bTitle, bRect.x + (bRect.width / 2) - bTitleWidth / 2, bRect.y + (bRect.height / 2) + bTitleHeight / 2);
 			}
