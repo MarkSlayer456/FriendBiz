@@ -44,7 +44,7 @@ public class Menu {
 		quit = new Menu(MenuName.QUIT, null, false); // this will end the program no need for a button array
 	}
 	
-	public static Menu getActiveMenu() {
+	public static Menu getActiveMenu() { // Returns the menu that is active
 		if(login.isActive()) {
 			return login;
 		} else if(main.isActive()) {
@@ -61,6 +61,7 @@ public class Menu {
 		return login;
 	}
 
+	// Methods that say what they do
 	public boolean isActive() {
 		return active;
 	}
