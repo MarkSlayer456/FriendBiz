@@ -64,7 +64,8 @@ public class Main extends TimerTask implements Runnable {
 			g = buffStr.getDrawGraphics();
 			////////////////////////////////////////////
 			g.clearRect(0, 0, Frame.getWindow().getFrame().getWidth(), Frame.getWindow().getFrame().getHeight()); // Clears the screen for each new frame
-			
+			g.setColor(Color.BLACK);
+			g.fillRect(0, 0, Frame.getWindow().getFrame().getWidth(), Frame.getWindow().getFrame().getHeight());
 			///// draw menus /////
 			Menu activeMenu = Menu.getActiveMenu();
 			for(int i = 0; i < activeMenu.getButtons().size(); i++) {
