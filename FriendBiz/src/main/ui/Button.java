@@ -3,6 +3,7 @@ package main.ui;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
+import main.framework.Frame;
 import main.ui.Menu.MenuName;
 
 public class Button {
@@ -33,8 +34,11 @@ public class Button {
 	public static void setup() { // All buttons will be created here
 		Rectangle rectS = new Rectangle(50, 50, 150, 50); // Default rectangle for testing
 		///// Login /////
-		Button login = new Button("login", false, rectS, MenuName.LOGIN, MenuName.MAIN); // Login button
-		Button cancel = new Button("cancel", false, rectS, MenuName.LOGIN, MenuName.QUIT); // Cancel button (closes program)
+		Rectangle loginR = new Rectangle((Frame.frame.getFrame().getWidth() / 2) - 100 - 75, (Frame.frame.getFrame().getHeight() / 2) + 175 - 25, 150, 50);
+		Rectangle cancelR = new Rectangle((Frame.frame.getFrame().getWidth() / 2) + 75, (Frame.frame.getFrame().getHeight() / 2) + 175 - 25, 150, 50);
+		//The +75 and +25 at the end of each argument is half the width and or height
+		Button login = new Button("login", false, loginR, MenuName.LOGIN, MenuName.MAIN); // Login button
+		Button cancel = new Button("cancel", false, cancelR, MenuName.LOGIN, MenuName.QUIT); // Cancel button (closes program)
 		loginButtons = new ArrayList<Button>();
 		loginButtons.add(login);
 		loginButtons.add(cancel);

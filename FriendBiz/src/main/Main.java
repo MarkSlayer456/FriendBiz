@@ -2,6 +2,8 @@ package main;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferStrategy;
 import java.util.Timer;
 
@@ -86,7 +88,12 @@ public class Main implements Runnable {
 			for(int i = 0; i < activeMenu.getButtons().size(); i++) {
 				Button button = activeMenu.getButtons().get(i);
 				g.setColor(Color.CYAN); //TODO Add a text for the buttons later
-				g.drawRect(button.getRect().x, button.getRect().y, button.getRect().width, button.getRect().height);
+				Rectangle bRect = button.getRect(); // Stores the rectangle for the button you are currently working with
+				String bTitle = button.getTitle(); // Stores the title for the button you are currently working with
+				int bTitleWidth = (int) g.getFontMetrics().getStringBounds(button.getTitle(), g).getWidth();
+				int bTitleHeight = (int) g.getFontMetrics().getStringBounds(button.getTitle(), g).getHeight();
+				g.drawRect(bRect.x, bRect.y, bRect.width, bRect.height);
+				g.drawString(bTitle, bRect.x + (bRect.width / 2) - bTitleWidth / 2, bRect.y + (bRect.height / 2) + bTitleHeight / 2);
 			}
 			
 			
