@@ -85,6 +85,7 @@ public class Main implements Runnable {
 			g.setColor(Color.BLACK);
 			g.fillRect(0, 0, Frame.getWindow().getFrame().getWidth(), Frame.getWindow().getFrame().getHeight());
 			///// draw menus /////
+			//TODO only have draw methods in here move other code into doLogic();
 			Menu activeMenu = Menu.getActiveMenu();
 			for(int i = 0; i < activeMenu.getButtons().size(); i++) {
 				Button button = activeMenu.getButtons().get(i);
