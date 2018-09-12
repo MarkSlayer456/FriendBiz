@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
@@ -102,7 +103,9 @@ public class Main implements Runnable {
 			
 			
 			//TODO just testing here
-			g.drawString(time.getTime(), 700, 50); // Shows the programs current time
+			Font font = new Font("default", 0, 30);
+			g.setFont(font);
+			g.drawString(time.getTime(), (int) (Frame.getWindow().getFrame().getWidth() / 2 - g.getFontMetrics().getStringBounds(time.getTime(), g).getWidth()), 50); // Shows the programs current time
 			//
 			
 			
