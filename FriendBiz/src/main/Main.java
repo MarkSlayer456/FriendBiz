@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferStrategy;
 import java.util.Timer;
 
